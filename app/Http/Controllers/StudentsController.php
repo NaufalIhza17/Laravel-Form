@@ -40,7 +40,7 @@ class StudentsController extends Controller
                 'between:2.50,99.99',
                 'regex:/^\d{1,2}(\.\d{1,2})?$/',
             ],
-            'image' => 'required|image|mimes:jpeg,png,jpg|size:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         $input = $request->all();
@@ -54,7 +54,7 @@ class StudentsController extends Controller
 
         Students::create($input);
 
-        return redirect()->route('index')->with('success', 'Product created successfully.');
+        return redirect()->route('index')->with('success', 'Students created successfully.');
     }
 
     /**
